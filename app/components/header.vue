@@ -2,7 +2,7 @@
     <header class="top-0 z-50 sticky mt-0">
         <ul>
             <li>
-                <div class="flex w-full justify-between px-50 bg-black text-white font-heading py-2">
+                <div class="flex w-full justify-between px-50 bg-black text-white font-heading py-2 overflow-hidden">
                     <div class="">
                        <span class="text-green-400 border border-green py-1 px-1">[ KS ]</span> 
                        KOEM SOTHEARITH
