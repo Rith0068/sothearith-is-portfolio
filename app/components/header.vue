@@ -4,11 +4,13 @@
             <li>
                 <div class="flex w-full justify-between px-50 bg-black text-white font-heading py-2 overflow-hidden">
                     <div class="">
-                       <span class="text-green-400 border border-green py-1 px-1">[ KS ]</span> 
-                       KOEM SOTHEARITH
+                        <NuxtLink to="/">
+                            <span class="text-green-400 border border-green py-1 px-1">[ KS ]</span> 
+                            KOEM SOTHEARITH
+                        </NuxtLink>
                     </div>
                     <div class="flex gap-10 text-lg">
-                        <NuxtLink to="/#" class="text-gray-400 hover:text-green-500 hover:border-b">About</NuxtLink>
+                        <NuxtLink to="#about" class="text-gray-400 hover:text-green-500 hover:border-b">About</NuxtLink>
                         <NuxtLink to="/#" class="text-gray-400 hover:text-green-500 hover:border-b">Process</NuxtLink>
                         <NuxtLink to="/#" class="text-gray-400 hover:text-green-500 hover:border-b">Experience</NuxtLink>
                         <NuxtLink to="/#" class="text-gray-400 hover:text-green-500 hover:border-b">Contact</NuxtLink>

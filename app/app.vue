@@ -4,6 +4,11 @@ import Footer from './components/footer.vue';
 </script>
 <template>
   <Header />
-  <NuxtPage class="px-50" />
+  <div class="scroll-smooth px-50">
+    <NuxtPage />
+  </div>
   <Footer />
 </template>
+<style>
+@import "~/assets/css/main.css";
+</style>
