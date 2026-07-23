@@ -6,17 +6,20 @@
         ></div>
 
         <div class="relative z-10">
-            <section class="pb-25">
+            <section class="pb-25" id="home">
                 <HeroSechtion />
             </section>
             <section class="py-25" id="about">
                 <About/>
             </section>
-            <section id="prosecss">
+            <section class="py-60" id="prosecss">
                 <Prosecss />
             </section>
-            <section id="experiences">
+            <section class="py-50" id="experiences">
                 <Experiences />
+            </section>
+            <section class="pt-50 pb-20" id="contact">
+                <Contact />
             </section>
         </div>
     </section>
@@ -27,4 +30,5 @@ import HeroSechtion from './hero-sechtion/index.vue'
 import About from './about/index.vue'
 import Prosecss from './prosecss/index.vue'
 import Experiences from './experiences/index.vue'
+import Contact from './contact/index.vue'
 </script>

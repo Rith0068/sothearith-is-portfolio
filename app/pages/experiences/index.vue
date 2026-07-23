@@ -1,14 +1,19 @@
 <template>
-    <div class="flex flex-col">
+    <div class="flex flex-col font-bold">
         <h3 class="font-bold text-[32px]">
             <span class="text-green-400">2</span> How I Work
         </h3>
         <div class="flex justify-between pt-5" v-for="experiencess in experiences" :key="experiencess">
-            <p class="text-sm text-green-500">
+            <p class="text-sm text-green-500 text-lg">
                 {{ experiencess.year }}
             </p>
-            <div class="flex flex-col">
-                {{ experiencess.title }}
+            <div class="flex flex-col w-210">
+                <p class="text-lg">
+                    {{ experiencess.title }}
+                </p>
+                <p class="text-sm text-gray-500">
+                    {{ experiencess.description }}
+                </p>
             </div>
         </div>
     </div>
