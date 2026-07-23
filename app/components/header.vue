@@ -11,8 +11,8 @@
                     </div>
                     <div class="flex gap-10 text-lg">
                         <NuxtLink to="#about" class="text-gray-400 hover:text-green-500 hover:border-b">About</NuxtLink>
-                        <NuxtLink to="/#" class="text-gray-400 hover:text-green-500 hover:border-b">Process</NuxtLink>
-                        <NuxtLink to="/#" class="text-gray-400 hover:text-green-500 hover:border-b">Experience</NuxtLink>
+                        <NuxtLink to="#prosecss" class="text-gray-400 hover:text-green-500 hover:border-b">Process</NuxtLink>
+                        <NuxtLink to="#experiences" class="text-gray-400 hover:text-green-500 hover:border-b">Experience</NuxtLink>
                         <NuxtLink to="/#" class="text-gray-400 hover:text-green-500 hover:border-b">Contact</NuxtLink>
                     </div>
                     <div clas>

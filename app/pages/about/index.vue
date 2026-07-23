@@ -25,23 +25,27 @@
 <script setup>
 const aboutMe = [
     {
-        text : "I'm a Full Stack Developer who enjoys building modern, responsive, and user-friendly web applications. I work across both frontend and backend technologies to create complete digital solutions that are functional, scalable, and easy to use."
+        text: "I'm a passionate Full Stack Developer who enjoys building modern, responsive, and user-friendly web applications. I work across both frontend and backend technologies to create scalable, efficient, and meaningful digital solutions that provide great user experiences."
     },
     {
-        text : "My journey into development started with a curiosity about how websites work. Since then, I've been learning and building projects using technologies like HTML, CSS, JavaScript, Tailwind CSS, Vue.js, Nuxt.js, Laravel, PHP, and MySQL. I enjoy turning ideas into real applications and continuously improving my skills."
+        text: "My journey into web development began with a curiosity about how websites and applications are built. Since then, I've been continuously learning and developing projects using technologies such as HTML, CSS, JavaScript, Tailwind CSS, Vue.js, Nuxt.js, Laravel, PHP, and MySQL. Every project has helped me strengthen my problem-solving skills and deepen my understanding of modern development practices."
     },
     {
-        text : "I love working on both the design and logic of an application—from creating clean user interfaces to developing secure and efficient backend systems. Solving problems and learning new technologies are what keep me motivated as a developer."
+        text: "I enjoy working on every stage of application development—from designing clean and intuitive user interfaces to building secure, maintainable, and efficient backend systems. I'm passionate about writing clean code, optimizing performance, and transforming ideas into real-world applications that solve practical problems."
     },
     {
-        text : "Outside of coding, I enjoy exploring new tools and frameworks, contributing to personal projects, and challenging myself to build better and more efficient solutions. I'm currently seeking opportunities to grow as a Full Stack Developer and collaborate with others on meaningful projects."
+        text: "Beyond coding, I love exploring new technologies, experimenting with frameworks and tools, and contributing to personal projects that challenge me to grow as a developer. I'm currently seeking internship and collaborative opportunities where I can continue learning, contribute to meaningful projects, and develop my skills as a Full Stack Developer."
     }
-]
+];
 
 const contactMe = [
     {
-        tittle : "Years of Practice",
+        tittle : "Years of Learning",
         contact : " 2+"
+    },
+    {
+        tittle : "Project",
+        contact : " 13+"
     },
     {
         tittle : "Specialties",
@@ -53,7 +57,7 @@ const contactMe = [
     },
     {
         tittle : "Currently",
-        contact : "Open to Internship / Open to Work"
+        contact : "Open to Internship Opportunities"
     },
 ]
 </script>

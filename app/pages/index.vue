@@ -12,6 +12,12 @@
             <section class="py-25" id="about">
                 <About/>
             </section>
+            <section id="prosecss">
+                <Prosecss />
+            </section>
+            <section id="experiences">
+                <Experiences />
+            </section>
         </div>
     </section>
 </template>
@@ -19,4 +25,6 @@
 <script setup>
 import HeroSechtion from './hero-sechtion/index.vue'
 import About from './about/index.vue'
+import Prosecss from './prosecss/index.vue'
+import Experiences from './experiences/index.vue'
 </script>
