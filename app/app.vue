@@ -4,7 +4,7 @@ import Footer from './components/footer.vue';
 </script>
 <template>
   <Header />
-  <div class="scroll-smooth px-50">
+  <div class="scroll-smooth px-4 sm:px-8 md:px-16 lg:px-32 xl:px-50">
     <NuxtPage />
   </div>
   <Footer />
