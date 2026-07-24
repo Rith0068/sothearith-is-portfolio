@@ -33,5 +33,8 @@ const info = [
   {
     contact: 'https://github.com/Rith0068'
   },
+  {
+    contact: '@sothearithkoem'
+  }
 ]
 </script>
