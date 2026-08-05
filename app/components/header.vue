@@ -13,6 +13,7 @@
       <!-- Desktop nav links -->
       <div class="hidden md:flex gap-6 lg:gap-10 text-base lg:text-lg">
         <NuxtLink to="#about" class="text-gray-400 hover:text-green-500 hover:border-b">About</NuxtLink>
+        <NuxtLink to="#work" class="text-gray-400 hover:text-green-500 hover:border-b">Work</NuxtLink>
         <NuxtLink to="#prosecss" class="text-gray-400 hover:text-green-500 hover:border-b">Process</NuxtLink>
         <NuxtLink to="#experiences" class="text-gray-400 hover:text-green-500 hover:border-b">Experience</NuxtLink>
         <NuxtLink to="#contact" class="text-gray-400 hover:text-green-500 hover:border-b">Contact</NuxtLink>

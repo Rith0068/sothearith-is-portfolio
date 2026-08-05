@@ -18,9 +18,21 @@
         </FadeInSection>
       </section>
 
+      <section class="py-12 sm:py-16 md:py-25" id="work">
+        <FadeInSection direction="left">
+          <Work />
+        </FadeInSection>
+      </section>
+
       <section class="py-16 sm:py-24 md:py-40 lg:py-60" id="prosecss">
         <FadeInSection direction="up">
           <Prosecss />
+        </FadeInSection>
+      </section>
+
+      <section class="pt-16 sm:pt-24 md:pt-32 lg:pt-50 pb-12 sm:pb-16 md:pb-20" id="contact">
+        <FadeInSection direction="up" :duration="1000">
+          <Work />
         </FadeInSection>
       </section>
 
@@ -45,4 +57,5 @@ import About from './about/index.vue'
 import Prosecss from './prosecss/index.vue'
 import Experiences from './experiences/index.vue'
 import Contact from './contact/index.vue'
+import Work from './work/index.vue'
 </script>
