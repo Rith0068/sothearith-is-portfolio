@@ -1,32 +1,32 @@
 <template>
   <div ref="heroRef">
-    <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 md:gap-10 px-4 sm:px-0 overflow-hidden">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10 px-4 sm:px-0 overflow-hidden">
       
-      <!-- Text Container (Slides from Left to Right) -->
+      <!-- Text Container -->
       <Transition name="slide-left-to-right">
-        <div v-if="isVisible" class="flex flex-col py-10 md:py-25 w-full md:w-120 text-center md:text-left order-2 md:order-1">
-          <p class="text-green-400 text-base sm:text-lg font-mono tracking-wider">
+        <div v-if="isVisible" class="flex flex-col py-4 md:py-12 w-full md:w-[480px] text-center md:text-left order-2 md:order-1 items-center md:items-start">
+          <p class="text-green-400 text-sm sm:text-base font-mono tracking-wider">
             ___ FULL STACK DEVELOPMENT
           </p>
 
-          <div class="block py-6 sm:py-10 w-full sm:w-70 mx-auto md:mx-0">
-            <div class="flex justify-between w-full sm:w-100">
+          <div class="block py-4 sm:py-6 w-full max-w-[280px] sm:max-w-none mx-auto md:mx-0">
+            <div class="flex justify-between w-full">
               <span class="w-2 h-2 border border-green-400"></span>
               <span class="w-2 h-2 border border-green-400"></span>
             </div>
 
-            <h1 class="font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl py-2 text-white">
+            <h1 class="font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl py-2 text-white leading-tight">
               <span class="text-green-400">Hi, I'm</span>
               <br>SoTheaRith
             </h1>
 
-            <div class="flex justify-between w-full sm:w-100">
+            <div class="flex justify-between w-full">
               <span class="w-2 h-2 border border-green-400"></span>
               <span class="w-2 h-2 border border-green-400"></span>
             </div>
           </div>
 
-          <p class="text-base sm:text-lg text-gray-400 mb-6">
+          <p class="text-sm sm:text-base md:text-lg text-gray-400 mb-6 max-w-md">
             I build fast, scalable, and user-friendly web and mobile applications using modern technologies.
           </p>
 
@@ -53,19 +53,19 @@
         </div>
       </Transition>
 
-      <!-- Image (Slides from Right to Left) -->
+      <!-- Image -->
       <Transition name="slide-right-to-left">
         <img
           v-if="isVisible"
           src="../../assets/travel.jpg"
           alt="my photo"
-          class="photo w-48 h-48 sm:w-64 sm:h-64 md:w-100 md:h-100 mt-2 md:mt-20 object-cover object-top border border-green-500/40 transition-all duration-300 rounded-3xl hover:grayscale-0 order-1 md:order-2"
+          class="photo w-40 h-40 sm:w-64 sm:h-64 md:w-[380px] md:h-[380px] mt-4 md:mt-10 object-cover object-top border border-green-500/40 transition-all duration-300 rounded-3xl hover:grayscale-0 order-1 md:order-2 shrink-0"
         >
       </Transition>
 
     </div>
 
-    <div class="flex justify-center md:justify-start px-4 sm:px-0 py-0 sm:py-10 md:py-10 mt-4 md:mt-0 w-full">
+    <div class="flex justify-center md:justify-start px-4 sm:px-0 py-4 sm:py-8 w-full">
       <Role />
     </div>
   </div>
@@ -85,68 +85,42 @@ onMounted(() => {
     ([entry]) => {
       isVisible.value = entry.isIntersecting
     },
-    {
-      threshold: 0.2
-    }
+    { threshold: 0.15 }
   )
 
-  if (heroRef.value) {
-    observer.observe(heroRef.value)
-  }
+  if (heroRef.value) observer.observe(heroRef.value)
 })
 
 onUnmounted(() => {
-  if (observer) {
-    observer.disconnect()
-  }
+  if (observer) observer.disconnect()
 })
 </script>
 
 <style scoped>
-/* Text Animation: Slides from Left to Right */
 .slide-left-to-right-enter-active,
-.slide-left-to-right-leave-active {
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
-}
-.slide-left-to-right-enter-from {
-  opacity: 0;
-  transform: translateX(-100px);
-}
-.slide-left-to-right-leave-to {
-  opacity: 0;
-  transform: translateX(-100px);
-}
-
-/* Image Animation: Slides from Right to Left */
+.slide-left-to-right-leave-active,
 .slide-right-to-left-enter-active,
 .slide-right-to-left-leave-active {
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
 }
-.slide-right-to-left-enter-from {
+
+.slide-left-to-right-enter-from,
+.slide-left-to-right-leave-to {
   opacity: 0;
-  transform: translateX(100px);
-}
-.slide-right-to-left-leave-to {
-  opacity: 0;
-  transform: translateX(100px);
+  transform: translateX(-80px);
 }
 
-/* Photo Box Shadow Styling */
+.slide-right-to-left-enter-from,
+.slide-right-to-left-leave-to {
+  opacity: 0;
+  transform: translateX(80px);
+}
+
 .photo {
   box-shadow: 0 0 40px 5px rgba(74, 222, 128, 0.4);
 }
 
 .photo:hover {
   box-shadow: 0 0 55px 10px rgba(74, 222, 128, 0.6);
-  margin-top: 0.5rem;
-}
-
-@media (min-width: 768px) {
-  .photo {
-    margin-top: 5rem;
-  }
-  .photo:hover {
-    margin-top: 4.75rem;
-  }
 }
 </style>

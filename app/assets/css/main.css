@@ -1,3 +1,25 @@
 html {
     scroll-behavior: smooth;
 }
+/* Add GPU layer hinting to glowing cards and photos */
+.photo,
+.photo-card,
+.process-card,
+.experience-card,
+.role-container {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Reduce slide distance from 100px to 30px to lower layout repaint load */
+.slide-left-to-right-enter-from,
+.slide-left-to-right-leave-to {
+  opacity: 0;
+  transform: translate3d(-30px, 0, 0);
+}
+
+.slide-right-to-left-enter-from,
+.slide-right-to-left-leave-to {
+  opacity: 0;
+  transform: translate3d(30px, 0, 0);
+}
