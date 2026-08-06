@@ -1,24 +1,44 @@
 <template>
-  <div class="flex flex-col px-4 sm:px-0">
-    <h3 class="font-bold text-2xl sm:text-[28px] md:text-[32px]">
-      <span class="text-green-400">2</span> How I Work
+  <div class="flex flex-col gap-8 px-4 sm:px-0">
+    <!-- Header -->
+    <h3 class="font-bold text-2xl sm:text-[28px] md:text-[32px] text-gray-200">
+      <span class="text-green-400">3</span> How I Work
     </h3>
 
-    <div class="flex flex-col sm:flex-row justify-between py-10 text-gray-500 font-bold gap-8 sm:gap-6 md:gap-10">
+    <!-- Process Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div
-        class="flex flex-col border-t"
-        v-for="processs in process"
-        :key="processs.step"
+        v-for="(item, i) in process"
+        :key="item.step"
+        class="process-card relative flex flex-col justify-between gap-4 rounded-xl border border-dashed border-green-500/40 bg-[#0d1117]/80 backdrop-blur-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-green-400 group"
       >
-        <p class="py-5 text-sm text-green-500">
-          {{ processs.step }}
-        </p>
-        <h6 class="text-lg text-white">
-          {{ processs.title }}
-        </h6>
-        <p class="text-sm py-2">
-          {{ processs.text }}
-        </p>
+        <!-- Decorative Corner Crosses -->
+        <span class="absolute -top-1 -left-1 text-green-400/80 font-mono text-[10px] select-none">+</span>
+        <span class="absolute -top-1 -right-1 text-green-400/80 font-mono text-[10px] select-none">+</span>
+        <span class="absolute -bottom-1 -left-1 text-green-400/80 font-mono text-[10px] select-none">+</span>
+        <span class="absolute -bottom-1 -right-1 text-green-400/80 font-mono text-[10px] select-none">+</span>
+
+        <div class="flex flex-col gap-3">
+          <!-- Step Badge Header -->
+          <div class="flex items-center justify-between w-full">
+            <span class="font-mono text-xs px-3 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 font-semibold shadow-[0_0_10px_rgba(74,222,128,0.15)]">
+              // {{ item.step }}
+            </span>
+            <span class="font-mono text-[11px] tracking-widest text-gray-500 uppercase">
+              PROC — {{ String(i + 1).padStart(2, '0') }}
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h4 class="text-xl font-bold text-gray-100 group-hover:text-green-400 transition-colors duration-200 mt-2">
+            {{ item.title }}
+          </h4>
+
+          <!-- Description -->
+          <p class="text-sm sm:text-base text-gray-400 font-normal leading-relaxed">
+            {{ item.text }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -43,3 +63,14 @@ const process = [
   }
 ];
 </script>
+
+<style scoped>
+/* Card Scoped Glow & Shadow Effects */
+.process-card {
+  box-shadow: 0 0 20px -5px rgba(74, 222, 128, 0.15), inset 0 0 15px -5px rgba(74, 222, 128, 0.05);
+}
+
+.process-card:hover {
+  box-shadow: 0 0 35px 2px rgba(74, 222, 128, 0.35), inset 0 0 20px -2px rgba(74, 222, 128, 0.1);
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <header class="top-0 z-50 sticky mt-0">
+  <header class="top-0 z-50 sticky mt-0 border-b border-gray-500">
     <div class="flex w-full items-center justify-between px-4 sm:px-8 md:px-16 lg:px-32 xl:px-50 bg-black text-white font-heading py-2">
 
       <!-- Logo -->
@@ -31,9 +31,9 @@
         @click="isOpen = !isOpen"
         aria-label="Toggle menu"
       >
-        <span class="w-6 h-0.5 bg-white transition-transform" :class="{ 'rotate-45 translate-y-2': isOpen }"></span>
-        <span class="w-6 h-0.5 bg-white transition-opacity" :class="{ 'opacity-0': isOpen }"></span>
-        <span class="w-6 h-0.5 bg-white transition-transform" :class="{ '-rotate-45 -translate-y-2': isOpen }"></span>
+        <span class="w-6 h-0.5 bg-green-500 transition-transform" :class="{ 'rotate-45 translate-y-2': isOpen }"></span>
+        <span class="w-6 h-0.5 bg-green-500 transition-opacity" :class="{ 'opacity-0': isOpen }"></span>
+        <span class="w-6 h-0.5 bg-green-500 transition-transform" :class="{ '-rotate-45 -translate-y-2': isOpen }"></span>
       </button>
     </div>
 
@@ -41,6 +41,7 @@
     <Transition name="fade">
       <div v-if="isOpen" class="md:hidden bg-black text-white flex flex-col px-4 py-4 gap-4 border-t border-gray-800">
         <NuxtLink to="#about" class="text-gray-400 hover:text-green-500" @click="isOpen = false">About</NuxtLink>
+        <NuxtLink to="#work" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Work</NuxtLink>
         <NuxtLink to="#prosecss" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Process</NuxtLink>
         <NuxtLink to="#experiences" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Experience</NuxtLink>
         <NuxtLink to="#contact" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Contact</NuxtLink>
@@ -51,7 +52,6 @@
       </div>
     </Transition>
 
-    <hr class="text-gray-500 shadow-xl">
   </header>
 </template>
 

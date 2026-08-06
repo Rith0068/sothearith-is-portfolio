@@ -1,6 +1,7 @@
 <script setup>
 import Header from './components/header.vue';
 import Footer from './components/footer.vue';
+import ClientOnly from './components/CursorTrail.vue';
 </script>
 <template>
   <Header />
@@ -8,6 +9,9 @@ import Footer from './components/footer.vue';
     <NuxtPage />
   </div>
   <Footer />
+  <ClientOnly>
+      <CursorTrail />
+  </ClientOnly>
 </template>
 <style>
 @import "~/assets/css/main.css";
