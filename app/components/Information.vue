@@ -41,14 +41,3 @@ const quickInfo = [
   },
 ];
 </script>
-
-<style scoped>
-/* Card Scoped Glow & Ambient Shadow Effects */
-.quick-info-container {
-  box-shadow: 0 0 20px -5px rgba(74, 222, 128, 0.15), inset 0 0 15px -5px rgba(74, 222, 128, 0.05);
-}
-
-.quick-info-container:hover {
-  box-shadow: 0 0 30px 2px rgba(74, 222, 128, 0.3), inset 0 0 20px -2px rgba(74, 222, 128, 0.08);
-}
-</style>

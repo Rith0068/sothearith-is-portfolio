@@ -1,5 +1,5 @@
 <template>
-  <div ref="aboutRef" class="flex flex-col lg:flex-row justify-between gap-10 px-4 sm:px-0 overflow-hidden">
+  <div ref="aboutRef" class="flex flex-col lg:flex-row justify-between gap-10 overflow-hidden">
     <!-- Left Section: About Details (Slides Left to Right) -->
     <Transition name="slide-left-to-right">
       <div v-show="isVisible" class="flex flex-col w-full lg:w-auto">
@@ -17,11 +17,11 @@
             <span class="absolute bottom-2 right-2 z-10 text-green-400/80 font-mono text-[10px] select-none">+</span>
 
             <img
-              src="../../assets/group.jpg"
-              alt="About me"
+              src="~/assets/group.jpg"
+              alt="Team photo with classmates and friends"
               loading="lazy"
               decoding="async"
-              class="w-full h-full object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+class="w-full h-full grayscale-[40%] object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
           </div>
@@ -69,11 +69,11 @@
           <span class="absolute bottom-2 right-2 z-10 text-green-400/80 font-mono text-[10px] select-none">+</span>
 
           <img
-            src="../../assets/my-photo.jpg"
-            alt="Contact"
+            src="~/assets/my-photo.jpg"
+            alt="Portrait of Koem SoTheaRith"
             loading="lazy"
             decoding="async"
-            class="w-full h-full object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+            class="w-full h-full grayscale-[40%] object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
         </div>
@@ -130,22 +130,10 @@ const contactMe = [
 </script>
 
 <style scoped>
-/* Scoped GPU Layering & Card Styling */
-.photo-card {
-  will-change: transform, opacity;
-  transform: translateZ(0);
-  box-shadow: 0 0 25px -5px rgba(74, 222, 128, 0.25);
-}
-
-.photo-card:hover {
-  box-shadow: 0 0 45px 5px rgba(74, 222, 128, 0.5);
-}
-
-/* Transitions with Performance Offsets */
+/* In-view transition offsets */
 .slide-left-to-right-enter-active,
 .slide-right-to-left-enter-active {
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
-  will-change: transform, opacity;
 }
 
 .slide-left-to-right-enter-from {

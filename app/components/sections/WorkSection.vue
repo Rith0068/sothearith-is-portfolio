@@ -72,19 +72,16 @@ const projects = [
     title: "Cambodian Craft Beer Crown",
     description:
       "Built the event site for Cambodia's premier craft beer competition, covering 11 breweries, the event timetable, and awards for the 2026 crown.",
-    tags: ["Next.js", "Tailwind CSS", "Vercel"],
+    tags: ["Nuxt.js", "Tailwind CSS", "Vercel"],
     link: "https://cambodian-craft-beer-crown-playgrou-wheat.vercel.app/",
+  },
+  {
+    year: "2026",
+    title: "AI Interview Practice Platform",
+    description:
+      "Built a modern web application that helps job seekers prepare for interviews by analyzing resumes, collecting job details, and generating personalized AI-powered interview sessions with a clean and responsive interface.",
+    tags: ["Nuxt.js", "Tailwind CSS", "Vercel"],
+    link: "https://project-wamd-interview.vercel.app/",
   },
 ];
 </script>
-
-<style scoped>
-/* Card Outer Glow & Shadow Effects */
-.project-card {
-  box-shadow: 0 0 20px -5px rgba(74, 222, 128, 0.15), inset 0 0 15px -5px rgba(74, 222, 128, 0.05);
-}
-
-.project-card:hover {
-  box-shadow: 0 0 35px 2px rgba(74, 222, 128, 0.35), inset 0 0 20px -2px rgba(74, 222, 128, 0.1);
-}
-</style>

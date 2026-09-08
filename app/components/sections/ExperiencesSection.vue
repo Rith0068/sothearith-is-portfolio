@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-8 px-4 sm:px-0">
+  <div class="flex flex-col gap-8">
     <!-- Header -->
     <h3 class="font-bold text-2xl sm:text-[28px] md:text-[32px] text-gray-200">
       <span class="text-green-400">4</span> Experience
@@ -75,14 +75,3 @@ const experiences = [
   }
 ];
 </script>
-
-<style scoped>
-/* Scoped Glow & Shadow Effects */
-.experience-card {
-  box-shadow: 0 0 20px -5px rgba(74, 222, 128, 0.15), inset 0 0 15px -5px rgba(74, 222, 128, 0.05);
-}
-
-.experience-card:hover {
-  box-shadow: 0 0 35px 2px rgba(74, 222, 128, 0.35), inset 0 0 20px -2px rgba(74, 222, 128, 0.1);
-}
-</style>

@@ -9,6 +9,3 @@ import Footer from './components/footer.vue';
   </div>
   <Footer />
 </template>
-<style>
-@import "~/assets/css/main.css";
-</style>

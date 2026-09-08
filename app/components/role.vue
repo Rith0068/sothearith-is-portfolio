@@ -41,14 +41,3 @@ const roles = [
   },
 ]
 </script>
-
-<style scoped>
-/* Matching Card Outer Glow & Shadow Effects */
-.role-container {
-  box-shadow: 0 0 20px -5px rgba(74, 222, 128, 0.15), inset 0 0 15px -5px rgba(74, 222, 128, 0.05);
-}
-
-.role-container:hover {
-  box-shadow: 0 0 30px 2px rgba(74, 222, 128, 0.3), inset 0 0 20px -2px rgba(74, 222, 128, 0.08);
-}
-</style>

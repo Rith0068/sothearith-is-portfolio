@@ -7,47 +7,39 @@
     ></div>
 
     <!-- Main Content Container -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative z-10 max-w-7xl mx-auto">
       <section class="pb-4 sm:pb-6 md:pb-8" id="home">
-        <HeroSechtion />
+        <HeroSection />
       </section>
 
       <section class="py-6 sm:py-8 md:py-12" id="about">
-        <About />
+        <AboutSection />
       </section>
 
       <section class="py-6 sm:py-8 md:py-12" id="work">
-        <Work />
+        <WorkSection />
       </section>
 
       <section class="py-6 sm:py-8 md:py-12" id="process">
-        <Prosecss />
+        <ProcessSection />
       </section>
 
       <section class="py-6 sm:py-8 md:py-12" id="experiences">
-        <Experiences />
+        <ExperiencesSection />
       </section>
 
       <section class="py-6 sm:py-8 md:py-12" id="contact">
-        <Contact />
+        <ContactSection />
       </section>
     </div>
   </main>
 </template>
 
 <script setup>
-import HeroSechtion from './hero-sechtion/index.vue'
-import About from './about/index.vue'
-import Prosecss from './prosecss/index.vue'
-import Experiences from './experiences/index.vue'
-import Contact from './contact/index.vue'
-import Work from './work/index.vue'
+import HeroSection from '~/components/sections/HeroSection.vue'
+import AboutSection from '~/components/sections/AboutSection.vue'
+import ProcessSection from '~/components/sections/ProcessSection.vue'
+import ExperiencesSection from '~/components/sections/ExperiencesSection.vue'
+import ContactSection from '~/components/sections/ContactSection.vue'
+import WorkSection from '~/components/sections/WorkSection.vue'
 </script>
-
-<style scoped>
-/* GPU Hardware Layer Promotion to ensure 60fps scrolling */
-section {
-  will-change: transform, opacity;
-  transform: translateZ(0);
-}
-</style>

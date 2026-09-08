@@ -1,6 +1,6 @@
 <template>
   <header class="top-0 z-50 sticky mt-0 border-b border-gray-500">
-    <div class="flex w-full items-center justify-between px-4 sm:px-8 md:px-16 lg:px-32 xl:px-50 bg-black text-white font-heading py-2">
+    <div class="flex w-full items-center justify-between px-4 sm:px-8 md:px-16 lg:px-32 xl:px-50 bg-black text-white py-2">
 
       <!-- Logo -->
       <div>
@@ -14,7 +14,7 @@
       <div class="hidden md:flex gap-6 lg:gap-10 text-base lg:text-lg">
         <NuxtLink to="#about" class="text-gray-400 hover:text-green-500 hover:border-b">About</NuxtLink>
         <NuxtLink to="#work" class="text-gray-400 hover:text-green-500 hover:border-b">Work</NuxtLink>
-        <NuxtLink to="#prosecss" class="text-gray-400 hover:text-green-500 hover:border-b">Process</NuxtLink>
+        <NuxtLink to="#process" class="text-gray-400 hover:text-green-500 hover:border-b">Process</NuxtLink>
         <NuxtLink to="#experiences" class="text-gray-400 hover:text-green-500 hover:border-b">Experience</NuxtLink>
         <NuxtLink to="#contact" class="text-gray-400 hover:text-green-500 hover:border-b">Contact</NuxtLink>
       </div>
@@ -30,6 +30,8 @@
         class="md:hidden flex flex-col gap-1.5 p-2"
         @click="isOpen = !isOpen"
         aria-label="Toggle menu"
+        :aria-expanded="isOpen"
+        aria-controls="mobile-menu"
       >
         <span class="w-6 h-0.5 bg-green-500 transition-transform" :class="{ 'rotate-45 translate-y-2': isOpen }"></span>
         <span class="w-6 h-0.5 bg-green-500 transition-opacity" :class="{ 'opacity-0': isOpen }"></span>
@@ -39,10 +41,10 @@
 
     <!-- Mobile dropdown menu -->
     <Transition name="fade">
-      <div v-if="isOpen" class="md:hidden bg-black text-white flex flex-col px-4 py-4 gap-4 border-t border-gray-800">
+      <div v-if="isOpen" id="mobile-menu" class="md:hidden bg-black text-white flex flex-col px-4 py-4 gap-4 border-t border-gray-800">
         <NuxtLink to="#about" class="text-gray-400 hover:text-green-500" @click="isOpen = false">About</NuxtLink>
         <NuxtLink to="#work" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Work</NuxtLink>
-        <NuxtLink to="#prosecss" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Process</NuxtLink>
+        <NuxtLink to="#process" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Process</NuxtLink>
         <NuxtLink to="#experiences" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Experience</NuxtLink>
         <NuxtLink to="#contact" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Contact</NuxtLink>
         <div class="flex items-center gap-2 text-sm text-gray-300 pt-2">
