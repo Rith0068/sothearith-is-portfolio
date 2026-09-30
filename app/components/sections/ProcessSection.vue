@@ -1,12 +1,21 @@
 <template>
-  <div class="flex flex-col gap-8">
+  <div ref="processRef" class="flex flex-col gap-8">
     <!-- Header -->
-    <h3 class="font-bold text-2xl sm:text-[28px] md:text-[32px] text-gray-200">
-      <span class="text-green-400">3</span> How I Work
-    </h3>
+    <Transition name="slide-left-to-right">
+      <h2
+        v-show="isVisible"
+        class="font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
+      >
+        <span class="text-green-400">2</span> How I Work
+      </h2>
+    </Transition>
 
     <!-- Process Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <Transition name="slide-right-to-left">
+      <div
+        v-show="isVisible"
+        class="grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
       <div
         v-for="(item, i) in process"
         :key="item.step"
@@ -30,9 +39,9 @@
           </div>
 
           <!-- Title -->
-          <h4 class="text-xl font-bold text-gray-100 group-hover:text-green-400 transition-colors duration-200 mt-2">
+          <h3 class="text-xl font-bold text-gray-100 group-hover:text-green-400 transition-colors duration-200 mt-2">
             {{ item.title }}
-          </h4>
+          </h3>
 
           <!-- Description -->
           <p class="text-sm sm:text-base text-gray-400 font-normal leading-relaxed">
@@ -40,11 +49,14 @@
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
 <script setup>
+const { target: processRef, isVisible } = useReveal()
+
 const process = [
   {
     step: "01 / Design",

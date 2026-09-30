@@ -8,7 +8,7 @@ html {
 /* Glowing card frames share one subtle shadow */
 .photo-card,
 .process-card,
-.experience-card,
+.journey-card,
 .project-card,
 .role-container,
 .quick-info-container {
@@ -17,21 +17,36 @@ html {
 
 .photo-card:hover,
 .process-card:hover,
-.experience-card:hover,
+.journey-card:hover,
 .project-card:hover,
 .role-container:hover,
 .quick-info-container:hover {
   box-shadow: 0 0 35px 2px rgba(74, 222, 128, 0.35), inset 0 0 20px -2px rgba(74, 222, 128, 0.1);
 }
 
-.slide-left-to-right-enter-from,
-.slide-left-to-right-leave-to {
+/* Shared scroll-reveal transitions, used by every section via useReveal() */
+.slide-left-to-right-enter-active,
+.slide-right-to-left-enter-active {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+
+.slide-left-to-right-enter-from {
   opacity: 0;
   transform: translate3d(-30px, 0, 0);
 }
 
-.slide-right-to-left-enter-from,
-.slide-right-to-left-leave-to {
+.slide-right-to-left-enter-from {
   opacity: 0;
   transform: translate3d(30px, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .slide-left-to-right-enter-active,
+  .slide-right-to-left-enter-active {
+    transition: none;
+  }
 }

@@ -1,10 +1,19 @@
 <template>
-  <div class="flex flex-col gap-8">
-    <h3 class="font-bold text-2xl sm:text-[28px] md:text-[32px] text-gray-200">
-      <span class="text-green-400">2</span> Selected work
-    </h3>
+  <div ref="workRef" class="flex flex-col gap-8">
+    <Transition name="slide-left-to-right">
+      <h2
+        v-show="isVisible"
+        class="font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
+      >
+        <span class="text-green-400">3</span> Selected work
+      </h2>
+    </Transition>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <Transition name="slide-right-to-left">
+      <div
+        v-show="isVisible"
+        class="grid grid-cols-1 sm:grid-cols-2 gap-6"
+      >
       <article
         v-for="(project, i) in projects"
         :key="project.title"
@@ -28,7 +37,7 @@
           </div>
 
           <!-- Title -->
-          <h4 class="font-serif font-bold text-2xl leading-snug">
+          <h3 class="font-bold text-2xl leading-snug">
             <a
               v-if="project.link"
               :href="project.link"
@@ -42,7 +51,7 @@
               </svg>
             </a>
             <span v-else class="text-green-400">{{ project.title }}</span>
-          </h4>
+          </h3>
 
           <!-- Description -->
           <p class="text-gray-400 text-[15px] leading-relaxed">
@@ -61,17 +70,28 @@
           </span>
         </div>
       </article>
-    </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
 <script setup>
+const { target: workRef, isVisible } = useReveal()
+
 const projects = [
+  {
+    year: "2026",
+    title: "Smart Locker System",
+    description:
+      "A full-stack smart locker platform on Laravel 13 with role-based access control. Admins manage the locker fleet, locations and maintenance records, while members reserve, use and release lockers and review their own access history through a dedicated dashboard.",
+    tags: ["Laravel", "PHP 8.3", "Blade", "Tailwind CSS", "MySQL"],
+    link: "https://github.com/Rith0068/smart-locker-system",
+  },
   {
     year: "2026",
     title: "Cambodian Craft Beer Crown",
     description:
-      "Built the event site for Cambodia's premier craft beer competition, covering 11 breweries, the event timetable, and awards for the 2026 crown.",
+      "Built the event platform for Cambodia's premier craft beer competition — an 11-brewery lineup, the full event timetable, results and award tracking for the 2026 crown, delivered in a dark, fully responsive Tailwind interface.",
     tags: ["Nuxt.js", "Tailwind CSS", "Vercel"],
     link: "https://cambodian-craft-beer-crown-playgrou-wheat.vercel.app/",
   },
@@ -79,9 +99,33 @@ const projects = [
     year: "2026",
     title: "AI Interview Practice Platform",
     description:
-      "Built a modern web application that helps job seekers prepare for interviews by analyzing resumes, collecting job details, and generating personalized AI-powered interview sessions with a clean and responsive interface.",
+      "Helps job seekers prepare end-to-end: the app parses a resume, collects the target job description, then generates a personalized AI-powered mock interview session with tailored questions and feedback — all inside a clean, responsive interface.",
     tags: ["Nuxt.js", "Tailwind CSS", "Vercel"],
     link: "https://project-wamd-interview.vercel.app/",
+  },
+  {
+    year: "2026",
+    title: "People Solution",
+    description:
+      "A full-stack people-management platform pairing a responsive Nuxt.js frontend with a Node.js Strapi backend API. Structured with typed content models and a clean REST layer so records stay consistent and the interface scales as the dataset grows.",
+    tags: ["Nuxt.js", "Tailwind CSS", "Node.js", "Strapi"],
+    link: "https://github.com/Rith0068/people-solution-front-end",
+  },
+  {
+    year: "2026",
+    title: "Jinglong Rental Management System",
+    description:
+      "A rental management system built with Laravel — structured with Eloquent models, migrations, routes and Blade views to cover listings, tenants and day-to-day rental operations end-to-end.",
+    tags: ["Laravel", "PHP", "MySQL", "Blade"],
+    link: "https://github.com/Rith0068/jinglong-rental-management-system",
+  },
+  {
+    year: "2026",
+    title: "Sneat Phone System",
+    description:
+      "A phone inventory and sales system built on Laravel with PHP 8.1 and Blade templating, using the Sneat admin interface to manage products, stock and customer orders from a single dashboard.",
+    tags: ["Laravel", "PHP 8.1", "MySQL", "Blade"],
+    link: "https://github.com/Rith0068/sneat-phone-system",
   },
 ];
 </script>

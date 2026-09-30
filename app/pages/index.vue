@@ -16,16 +16,16 @@
         <AboutSection />
       </section>
 
-      <section class="py-6 sm:py-8 md:py-12" id="work">
-        <WorkSection />
-      </section>
-
       <section class="py-6 sm:py-8 md:py-12" id="process">
         <ProcessSection />
       </section>
 
-      <section class="py-6 sm:py-8 md:py-12" id="experiences">
-        <ExperiencesSection />
+      <section class="py-6 sm:py-8 md:py-12" id="work">
+        <WorkSection />
+      </section>
+
+      <section class="py-6 sm:py-8 md:py-12" id="journey">
+        <JourneySection />
       </section>
 
       <section class="py-6 sm:py-8 md:py-12" id="contact">
@@ -39,7 +39,7 @@
 import HeroSection from '~/components/sections/HeroSection.vue'
 import AboutSection from '~/components/sections/AboutSection.vue'
 import ProcessSection from '~/components/sections/ProcessSection.vue'
-import ExperiencesSection from '~/components/sections/ExperiencesSection.vue'
+import JourneySection from '~/components/sections/JourneySection.vue'
 import ContactSection from '~/components/sections/ContactSection.vue'
 import WorkSection from '~/components/sections/WorkSection.vue'
 </script>

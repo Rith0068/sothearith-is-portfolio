@@ -13,9 +13,9 @@
       <!-- Desktop nav links -->
       <div class="hidden md:flex gap-6 lg:gap-10 text-base lg:text-lg">
         <NuxtLink to="#about" class="text-gray-400 hover:text-green-500 hover:border-b">About</NuxtLink>
-        <NuxtLink to="#work" class="text-gray-400 hover:text-green-500 hover:border-b">Work</NuxtLink>
         <NuxtLink to="#process" class="text-gray-400 hover:text-green-500 hover:border-b">Process</NuxtLink>
-        <NuxtLink to="#experiences" class="text-gray-400 hover:text-green-500 hover:border-b">Experience</NuxtLink>
+        <NuxtLink to="#work" class="text-gray-400 hover:text-green-500 hover:border-b">Work</NuxtLink>
+        <NuxtLink to="#journey" class="text-gray-400 hover:text-green-500 hover:border-b">Journey</NuxtLink>
         <NuxtLink to="#contact" class="text-gray-400 hover:text-green-500 hover:border-b">Contact</NuxtLink>
       </div>
 
@@ -43,9 +43,9 @@
     <Transition name="fade">
       <div v-if="isOpen" id="mobile-menu" class="md:hidden bg-black text-white flex flex-col px-4 py-4 gap-4 border-t border-gray-800">
         <NuxtLink to="#about" class="text-gray-400 hover:text-green-500" @click="isOpen = false">About</NuxtLink>
-        <NuxtLink to="#work" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Work</NuxtLink>
         <NuxtLink to="#process" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Process</NuxtLink>
-        <NuxtLink to="#experiences" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Experience</NuxtLink>
+        <NuxtLink to="#work" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Work</NuxtLink>
+        <NuxtLink to="#journey" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Journey</NuxtLink>
         <NuxtLink to="#contact" class="text-gray-400 hover:text-green-500" @click="isOpen = false">Contact</NuxtLink>
         <div class="flex items-center gap-2 text-sm text-gray-300 pt-2">
           <span class="bg-green-500 h-2 w-2 rounded-full border border-green-600"></span>

@@ -12,7 +12,7 @@
 
       <!-- Text Container -->
       <Transition name="slide-left-to-right">
-        <div v-if="isVisible" class="relative flex flex-col py-4 md:py-12 w-full md:w-[480px] text-center md:text-left order-2 md:order-1 items-center md:items-start">
+        <div v-show="isVisible" class="relative flex flex-col py-4 md:py-12 w-full md:w-[480px] text-center md:text-left order-2 md:order-1 items-center md:items-start">
 
           <!-- Ambient glow behind content -->
           <div class="pointer-events-none absolute -left-20 -top-20 w-72 h-72 bg-green-500/10 rounded-full blur-3xl"></div>
@@ -80,7 +80,7 @@
 
       <!-- Image -->
       <Transition name="slide-right-to-left">
-        <div v-if="isVisible" class="relative order-1 md:order-2 shrink-0 float-photo">
+        <div v-show="isVisible" class="relative order-1 md:order-2 shrink-0 float-photo">
 
           <!-- Corner brackets -->
           <span class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-green-400"></span>
@@ -90,7 +90,7 @@
 
           <img
             src="~/assets/travel.jpg"
-            alt="Portrait of Koem SoTheaRith"
+            alt="Koem SoTheaRith"
             class="photo grayscale-[40%] w-40 h-40 sm:w-64 sm:h-64 md:w-[380px] md:h-[380px] mt-4 md:mt-10 object-cover object-top border border-green-500/40 transition-all duration-300 rounded-3xl hover:grayscale-0 shrink-0"
           >
 
@@ -114,50 +114,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
 import Role from '~/components/role.vue'
 
-const heroRef = ref(null)
-const isVisible = ref(false)
-
-let observer = null
-
-onMounted(() => {
-  observer = new IntersectionObserver(
-    ([entry]) => {
-      isVisible.value = entry.isIntersecting
-    },
-    { threshold: 0.15 }
-  )
-
-  if (heroRef.value) observer.observe(heroRef.value)
-})
-
-onUnmounted(() => {
-  if (observer) observer.disconnect()
-})
+const { target: heroRef, isVisible } = useReveal()
 </script>
 
 <style scoped>
-.slide-left-to-right-enter-active,
-.slide-left-to-right-leave-active,
-.slide-right-to-left-enter-active,
-.slide-right-to-left-leave-active {
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
-}
-
-.slide-left-to-right-enter-from,
-.slide-left-to-right-leave-to {
-  opacity: 0;
-  transform: translateX(-80px);
-}
-
-.slide-right-to-left-enter-from,
-.slide-right-to-left-leave-to {
-  opacity: 0;
-  transform: translateX(80px);
-}
-
 .photo {
   box-shadow: 0 0 40px 5px rgba(74, 222, 128, 0.4);
 }
@@ -188,6 +150,16 @@ onUnmounted(() => {
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-photo {
+    animation: none;
+  }
+
+  .cursor-blink {
+    animation: none;
   }
 }
 </style>
