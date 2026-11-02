@@ -1,26 +1,24 @@
 <template>
   <div ref="journeyRef" class="flex flex-col gap-8">
     <!-- Left: Heading (Slides Left to Right) -->
-    <Transition name="slide-left-to-right">
-      <h2
-        v-show="isVisible"
-        class="font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
-      >
-        <span class="text-green-400">4</span> Journey
-      </h2>
-    </Transition>
+    <h2
+      class="reveal reveal-left font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
+      :class="{ 'is-visible': isVisible }"
+    >
+      <span class="text-green-400">4</span> Journey
+    </h2>
 
     <!-- Right: Timeline (Slides Right to Left) -->
-    <Transition name="slide-right-to-left">
+    <div
+      class="relative flex flex-col gap-6 pl-6 sm:pl-8 border-l border-dashed border-green-500/30 ml-2 sm:ml-4"
+    >
       <div
-        v-show="isVisible"
-        class="relative flex flex-col gap-6 pl-6 sm:pl-8 border-l border-dashed border-green-500/30 ml-2 sm:ml-4"
+        v-for="(step, i) in journey"
+        :key="step.title"
+        class="reveal reveal-up journey-card relative flex flex-col gap-3 rounded-xl border border-dashed border-green-500/40 bg-[#0d1117]/80 backdrop-blur-sm p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-green-400 group"
+        :class="{ 'is-visible': isVisible }"
+        :style="{ '--reveal-delay': `${i * 100}ms` }"
       >
-        <div
-          v-for="(step, i) in journey"
-          :key="step.title"
-          class="journey-card relative flex flex-col gap-3 rounded-xl border border-dashed border-green-500/40 bg-[#0d1117]/80 backdrop-blur-sm p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-green-400 group"
-        >
           <!-- Timeline Node (Glowing Dot) -->
           <div class="absolute -left-[31px] sm:-left-[39px] top-6 w-3.5 h-3.5 rounded-full bg-green-400 border-2 border-[#0d1117] shadow-[0_0_12px_rgba(74,222,128,0.9)] group-hover:scale-125 transition-transform duration-300"></div>
 
@@ -50,8 +48,7 @@
             {{ step.description }}
           </p>
         </div>
-      </div>
-    </Transition>
+    </div>
   </div>
 </template>
 

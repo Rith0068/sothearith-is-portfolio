@@ -1,25 +1,21 @@
 <template>
   <div ref="processRef" class="flex flex-col gap-8">
     <!-- Header -->
-    <Transition name="slide-left-to-right">
-      <h2
-        v-show="isVisible"
-        class="font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
-      >
-        <span class="text-green-400">2</span> How I Work
-      </h2>
-    </Transition>
+    <h2
+      class="reveal reveal-left font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
+      :class="{ 'is-visible': isVisible }"
+    >
+      <span class="text-green-400">2</span> How I Work
+    </h2>
 
     <!-- Process Cards Grid -->
-    <Transition name="slide-right-to-left">
-      <div
-        v-show="isVisible"
-        class="grid grid-cols-1 md:grid-cols-3 gap-6"
-      >
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div
         v-for="(item, i) in process"
         :key="item.step"
-        class="process-card relative flex flex-col justify-between gap-4 rounded-xl border border-dashed border-green-500/40 bg-[#0d1117]/80 backdrop-blur-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-green-400 group"
+        class="reveal reveal-up process-card relative flex flex-col justify-between gap-4 rounded-xl border border-dashed border-green-500/40 bg-[#0d1117]/80 backdrop-blur-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-green-400 group"
+        :class="{ 'is-visible': isVisible }"
+        :style="{ '--reveal-delay': `${i * 90}ms` }"
       >
         <!-- Decorative Corner Crosses -->
         <span class="absolute -top-1 -left-1 text-green-400/80 font-mono text-[10px] select-none">+</span>
@@ -49,8 +45,7 @@
           </p>
         </div>
       </div>
-      </div>
-    </Transition>
+    </div>
   </div>
 </template>
 

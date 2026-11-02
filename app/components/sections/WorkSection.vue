@@ -1,23 +1,20 @@
 <template>
   <div ref="workRef" class="flex flex-col gap-8">
-    <Transition name="slide-left-to-right">
-      <h2
-        v-show="isVisible"
-        class="font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
-      >
-        <span class="text-green-400">3</span> Selected work
-      </h2>
-    </Transition>
+    <h2
+      class="reveal reveal-left font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
+      :class="{ 'is-visible': isVisible }"
+    >
+      <span class="text-green-400">3</span> Selected work
+    </h2>
 
-    <Transition name="slide-right-to-left">
-      <div
-        v-show="isVisible"
-        class="grid grid-cols-1 sm:grid-cols-2 gap-6"
-      >
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <article
         v-for="(project, i) in projects"
+        v-tilt="{ max: 5, scale: 1.01, lift: 5 }"
         :key="project.title"
-        class="project-card relative flex flex-col justify-between gap-3.5 rounded-xl border border-dashed border-green-500/40 bg-[#0d1117]/80 backdrop-blur-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-green-400"
+        class="reveal reveal-up project-card relative flex flex-col justify-between gap-3.5 rounded-xl border border-dashed border-green-500/40 bg-[#0d1117]/80 backdrop-blur-sm p-6 sm:p-7 transition-all duration-300 hover:border-green-400"
+        :class="{ 'is-visible': isVisible }"
+        :style="{ '--reveal-delay': `${i * 70}ms` }"
       >
         <!-- Decorative Corner Accent Crosses -->
         <span class="absolute -top-1 -left-1 text-green-400/80 font-mono text-[10px] select-none">+</span>
@@ -70,8 +67,7 @@
           </span>
         </div>
       </article>
-      </div>
-    </Transition>
+    </div>
   </div>
 </template>
 

@@ -1,8 +1,10 @@
 <template>
   <div ref="aboutRef" class="flex flex-col lg:flex-row justify-between gap-10 overflow-hidden">
     <!-- Left Section: About Details (Slides Left to Right) -->
-    <Transition name="slide-left-to-right">
-      <div v-show="isVisible" class="flex flex-col w-full lg:w-auto">
+    <div
+      class="reveal reveal-left flex flex-col w-full lg:w-auto"
+      :class="{ 'is-visible': isVisible }"
+    >
         <h2 class="font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200">
           <span class="text-green-400">1</span> About
         </h2>
@@ -37,12 +39,13 @@
             </p>
           </div>
         </div>
-      </div>
-    </Transition>
+    </div>
 
     <!-- Right Section: Stats & Photo (Slides Right to Left) -->
-    <Transition name="slide-right-to-left">
-      <div v-show="isVisible" class="flex flex-col w-full lg:w-auto">
+    <div
+      class="reveal reveal-right flex flex-col w-full lg:w-auto"
+      :class="{ 'is-visible': isVisible }"
+    >
         <!-- Stats Table -->
         <div class="flex flex-col mt-6 lg:mt-10 w-full lg:w-[480px] divide-y divide-green-500/20">
           <div
@@ -78,7 +81,6 @@
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
         </div>
       </div>
-    </Transition>
   </div>
 </template>
 

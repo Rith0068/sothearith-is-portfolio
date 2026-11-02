@@ -1,18 +1,90 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   THEME TOKENS
+   Change the values in :root to restyle the whole site from one place.
+   The Tailwind `green-*` classes used across the app are aliased to the
+   `--brand-*` tokens below, so editing the brand colors re-colors every page.
+   ========================================================================== */
+:root {
+  /* Brand / accent */
+  --brand-300: #86efac;
+  --brand-400: #4ade80;
+  --brand-500: #22c55e;
+  --brand-600: #16a34a;
+  --brand-rgb: 74 222 128;
+
+  /* Base palette */
+  --bg: #000000;
+  --surface: #0d1117;
+  --surface-soft: rgb(13 17 23 / 0.8);
+  --text: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-subtle: #6b7280;
+}
+
+@theme inline {
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Semantic color utilities: bg-background, bg-surface, text-foreground, ... */
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-foreground: var(--text);
+  --color-muted: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+
+  /* Brand scale: bg-brand-400, text-brand-500, border-brand-400, ... */
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+
+  /* Alias the existing green-* utilities to the brand tokens so the whole
+     page follows the theme without editing every component. */
+  --color-green-300: var(--brand-300);
+  --color-green-400: var(--brand-400);
+  --color-green-500: var(--brand-500);
+  --color-green-600: var(--brand-600);
+}
+
+/* Base element styles (apply to every page) */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
 }
 
-/* Glowing card frames share one subtle shadow */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background-color: var(--brand-400);
+  color: var(--bg);
+}
+
+/* Glowing card frames share one subtle shadow (color follows --brand-rgb) */
 .photo-card,
 .process-card,
 .journey-card,
 .project-card,
 .role-container,
 .quick-info-container {
-  box-shadow: 0 0 20px -5px rgba(74, 222, 128, 0.15), inset 0 0 15px -5px rgba(74, 222, 128, 0.05);
+  box-shadow: 0 0 20px -5px rgb(var(--brand-rgb) / 0.15), inset 0 0 15px -5px rgb(var(--brand-rgb) / 0.05);
 }
 
 .photo-card:hover,
@@ -21,23 +93,35 @@ html {
 .project-card:hover,
 .role-container:hover,
 .quick-info-container:hover {
-  box-shadow: 0 0 35px 2px rgba(74, 222, 128, 0.35), inset 0 0 20px -2px rgba(74, 222, 128, 0.1);
+  box-shadow: 0 0 35px 2px rgb(var(--brand-rgb) / 0.35), inset 0 0 20px -2px rgb(var(--brand-rgb) / 0.1);
 }
 
-/* Shared scroll-reveal transitions, used by every section via useReveal() */
-.slide-left-to-right-enter-active,
-.slide-right-to-left-enter-active {
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
-}
-
-.slide-left-to-right-enter-from {
+/* Scroll-reveal, used by every section via useReveal().
+   Content stays in the layout (only opacity/transform change) so sections
+   never collapse and shift the page while they are still hidden. */
+.reveal {
   opacity: 0;
-  transform: translate3d(-30px, 0, 0);
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
-.slide-right-to-left-enter-from {
-  opacity: 0;
-  transform: translate3d(30px, 0, 0);
+.reveal-left {
+  transform: translate3d(-32px, 0, 0);
+}
+
+.reveal-right {
+  transform: translate3d(32px, 0, 0);
+}
+
+.reveal-up {
+  transform: translate3d(0, 24px, 0);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -45,8 +129,9 @@ html {
     scroll-behavior: auto;
   }
 
-  .slide-left-to-right-enter-active,
-  .slide-right-to-left-enter-active {
+  .reveal {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }

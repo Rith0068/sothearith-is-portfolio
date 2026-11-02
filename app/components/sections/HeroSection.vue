@@ -3,19 +3,21 @@
 
     <!-- Ambient background layer -->
     <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      <div class="absolute top-10 left-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-10 w-72 h-72 bg-green-400/5 rounded-full blur-3xl"></div>
+      <div v-mouse-parallax="{ strength: 18 }" class="absolute top-10 left-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-3xl"></div>
+      <div v-mouse-parallax="{ strength: 32 }" class="absolute bottom-0 right-10 w-72 h-72 bg-green-400/5 rounded-full blur-3xl"></div>
       <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(74,222,128,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(74,222,128,0.04)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black_40%,transparent_100%)]"></div>
     </div>
 
     <div class="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10 overflow-hidden">
 
       <!-- Text Container -->
-      <Transition name="slide-left-to-right">
-        <div v-show="isVisible" class="relative flex flex-col py-4 md:py-12 w-full md:w-[480px] text-center md:text-left order-2 md:order-1 items-center md:items-start">
+      <div
+        class="reveal reveal-left relative flex flex-col py-4 md:py-12 w-full md:w-[480px] text-center md:text-left order-2 md:order-1 items-center md:items-start"
+        :class="{ 'is-visible': isVisible }"
+      >
 
           <!-- Ambient glow behind content -->
-          <div class="pointer-events-none absolute -left-20 -top-20 w-72 h-72 bg-green-500/10 rounded-full blur-3xl"></div>
+          <div v-mouse-parallax="{ strength: 12 }" class="pointer-events-none absolute -left-20 -top-20 w-72 h-72 bg-green-500/10 rounded-full blur-3xl"></div>
 
           <!-- Eyebrow label -->
           <p class="relative inline-flex items-center gap-2 text-green-400 text-sm sm:text-base font-mono tracking-widest uppercase">
@@ -75,35 +77,44 @@
               </svg>
             </a>
           </div>
-        </div>
-      </Transition>
+      </div>
 
       <!-- Image -->
-      <Transition name="slide-right-to-left">
-        <div v-show="isVisible" class="relative order-1 md:order-2 shrink-0 float-photo">
+      <div
+        v-scroll-parallax="{ speed: -0.04 }"
+        class="relative order-1 md:order-2 shrink-0"
+      >
+        <div class="reveal reveal-right" :class="{ 'is-visible': isVisible }">
+          <div class="float-photo">
+            <div
+              v-tilt="{ max: 9, scale: 1.02, lift: 0 }"
+              class="relative"
+            >
 
-          <!-- Corner brackets -->
-          <span class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-green-400"></span>
-          <span class="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-green-400"></span>
-          <span class="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-green-400"></span>
-          <span class="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-green-400"></span>
+              <!-- Corner brackets -->
+              <span class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-green-400"></span>
+              <span class="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-green-400"></span>
+              <span class="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-green-400"></span>
+              <span class="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-green-400"></span>
 
-          <img
-            src="~/assets/travel.jpg"
-            alt="Koem SoTheaRith"
-            class="photo grayscale-[40%] w-40 h-40 sm:w-64 sm:h-64 md:w-[380px] md:h-[380px] mt-4 md:mt-10 object-cover object-top border border-green-500/40 transition-all duration-300 rounded-3xl hover:grayscale-0 shrink-0"
-          >
+              <img
+                src="~/assets/travel.jpg"
+                alt="Koem SoTheaRith"
+                class="photo grayscale-[40%] w-40 h-40 sm:w-64 sm:h-64 md:w-[380px] md:h-[380px] mt-4 md:mt-10 object-cover object-top border border-green-500/40 transition-all duration-300 rounded-3xl hover:grayscale-0 shrink-0"
+              >
 
-          <!-- Status badge -->
-          <div class="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm border border-green-400/40 text-green-400 font-mono text-xs">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
-            </span>
-            Available for work
+              <!-- Status badge -->
+              <div class="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm border border-green-400/40 text-green-400 font-mono text-xs">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+                </span>
+                Available for work
+              </div>
+            </div>
           </div>
         </div>
-      </Transition>
+      </div>
 
     </div>
 

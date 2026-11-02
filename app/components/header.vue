@@ -1,6 +1,14 @@
 <template>
   <header class="top-0 z-50 sticky mt-0 border-b border-gray-500">
-    <div class="flex w-full items-center justify-between px-4 sm:px-8 md:px-16 lg:px-32 xl:px-50 bg-black text-white py-2">
+    <div class="relative flex w-full items-center justify-between px-4 sm:px-8 md:px-16 lg:px-32 xl:px-50 bg-black text-white py-2">
+
+      <!-- Scroll progress -->
+      <div class="absolute bottom-0 left-0 h-[2px] w-full bg-green-500/15">
+        <div
+          class="h-full origin-left bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.8)]"
+          :style="{ transform: `scaleX(${progress})` }"
+        ></div>
+      </div>
 
       <!-- Logo -->
       <div>
@@ -58,9 +66,34 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const isOpen = ref(false)
+const progress = ref(0)
+
+let raf = null
+
+const updateProgress = () => {
+  raf = null
+  const max = document.documentElement.scrollHeight - window.innerHeight
+  progress.value = max > 0 ? Math.min(1, window.scrollY / max) : 0
+}
+
+const onScroll = () => {
+  if (!raf) raf = requestAnimationFrame(updateProgress)
+}
+
+onMounted(() => {
+  updateProgress()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onScroll, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', onScroll)
+  if (raf) cancelAnimationFrame(raf)
+})
 </script>
 
 <style scoped>

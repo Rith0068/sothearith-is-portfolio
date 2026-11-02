@@ -18,12 +18,9 @@ export function useReveal(options = {}) {
 
     observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer?.disconnect()
-        }
+        isVisible.value = entry.isIntersecting
       },
-      { threshold }
+      { threshold, rootMargin: '0px 0px -8% 0px' }
     )
 
     observer.observe(target.value)
