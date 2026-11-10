@@ -1,10 +1,11 @@
 <template>
   <div ref="workRef" class="flex flex-col gap-8">
     <h2
-      class="reveal reveal-left font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
+      class="reveal reveal-left font-bold uppercase tracking-tight text-3xl sm:text-4xl lg:text-5xl text-white"
       :class="{ 'is-visible': isVisible }"
     >
-      <span class="text-green-400">3</span> Selected work
+      <span class="text-green-400">3</span>{{ ' ' }}
+      <TypeUp text="Selected Work" :show="isVisible" />
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">

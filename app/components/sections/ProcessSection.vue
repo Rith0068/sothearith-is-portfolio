@@ -2,10 +2,11 @@
   <div ref="processRef" class="flex flex-col gap-8">
     <!-- Header -->
     <h2
-      class="reveal reveal-left font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
+      class="reveal reveal-left font-bold uppercase tracking-tight text-3xl sm:text-4xl lg:text-5xl text-white"
       :class="{ 'is-visible': isVisible }"
     >
-      <span class="text-green-400">2</span> How I Work
+      <span class="text-green-400">2</span>{{ ' ' }}
+      <TypeUp text="How I Work" :show="isVisible" />
     </h2>
 
     <!-- Process Cards Grid -->

@@ -124,12 +124,73 @@ h6 {
   transform: none;
 }
 
+/* Bold type-up text reveal. Words are wrapped in overflow-hidden masks and
+   slide up from below, staggered per word. Triggered by the same `is-visible`
+   state as the scroll-reveal system: pass it to <TypeUp :show="..."> or rely
+   on an `.is-visible` ancestor. */
+.type-words {
+  display: inline;
+}
+
+.type-mask {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* Extra room so tall glyphs never get clipped by the mask, with negative
+     margins keeping the layout (line height) unchanged. */
+  padding-top: 0.12em;
+  margin-top: -0.12em;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+  /* Word spacing: adjacent masks render without whitespace between them. */
+  margin-right: 0.28em;
+}
+
+.type-mask:last-child {
+  margin-right: 0;
+}
+
+/* Full-width line variant: forces each masked line onto its own row. */
+.type-mask--block {
+  display: block;
+  margin-right: 0;
+}
+
+.type-mask--block .type-line {
+  display: block;
+}
+
+.type-line {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 112%, 0);
+  transition:
+    opacity 0.45s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--type-base, 80ms) + var(--type-i, 0) * 90ms);
+  will-change: transform, opacity;
+}
+
+.is-visible .type-line,
+.type-words.is-visible .type-line {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .type-line {
     opacity: 1;
     transform: none;
     transition: none;

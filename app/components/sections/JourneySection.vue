@@ -2,10 +2,11 @@
   <div ref="journeyRef" class="flex flex-col gap-8">
     <!-- Left: Heading (Slides Left to Right) -->
     <h2
-      class="reveal reveal-left font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200"
+      class="reveal reveal-left font-bold uppercase tracking-tight text-3xl sm:text-4xl lg:text-5xl text-white"
       :class="{ 'is-visible': isVisible }"
     >
-      <span class="text-green-400">4</span> Journey
+      <span class="text-green-400">4</span>{{ ' ' }}
+      <TypeUp text="Journey" :show="isVisible" />
     </h2>
 
     <!-- Right: Timeline (Slides Right to Left) -->

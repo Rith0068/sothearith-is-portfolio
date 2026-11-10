@@ -5,8 +5,9 @@
       class="reveal reveal-left flex flex-col w-full lg:w-auto"
       :class="{ 'is-visible': isVisible }"
     >
-        <h2 class="font-bold text-2xl sm:text-[28px] lg:text-[32px] text-gray-200">
-          <span class="text-green-400">1</span> About
+        <h2 class="font-bold uppercase tracking-tight text-3xl sm:text-4xl lg:text-5xl text-white">
+          <span class="text-green-400">1</span>{{ ' ' }}
+          <TypeUp text="About" :show="isVisible" />
         </h2>
 
         <div class="flex flex-col w-full lg:w-[600px] mt-6 lg:mt-10 gap-6">

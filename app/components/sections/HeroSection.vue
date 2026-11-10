@@ -32,14 +32,19 @@
               <span class="w-2 h-2 border border-green-400 rotate-45"></span>
             </div>
 
-            <h1 class="relative font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl py-2 text-white leading-tight drop-shadow-[0_0_25px_rgba(74,222,128,0.15)]">
-              <span class="bg-gradient-to-r from-green-400 via-green-300 to-green-500 bg-clip-text text-transparent">
-                Hi, I'm
+            <h1 class="relative font-bold uppercase tracking-tight text-5xl sm:text-6xl md:text-7xl py-2 text-white leading-[0.95] drop-shadow-[0_0_25px_rgba(74,222,128,0.15)]">
+              <span class="type-mask type-mask--block">
+                <span class="type-line">
+                  <span class="bg-gradient-to-r from-green-400 via-green-300 to-green-500 bg-clip-text text-transparent">
+                    Hi, I'm
+                  </span>
+                </span>
               </span>
-              <br>
-              <span class="relative inline-block">
-                SoTheaRith
-                <span class="absolute -bottom-1 left-0 md:left-0 w-1/2 h-[3px] bg-gradient-to-r from-green-400 to-transparent"></span>
+              <span class="type-mask type-mask--block">
+                <span class="type-line">
+                  SoTheaRith
+                  <span class="absolute -bottom-1 left-0 w-1/2 h-[3px] bg-gradient-to-r from-green-400 to-transparent"></span>
+                </span>
               </span>
             </h1>
 
